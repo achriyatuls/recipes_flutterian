@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_recipes/model/kategori_screen.dart';
-import 'package:flutter_recipes/model/recipe.dart';
+import 'package:flutter_recipes/model/chair.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => HomePage(),
-        '/recipes': (context) => Recipe(),
+        '/': (context) => const HomePage(),
+        '/recipes': (context) => const Recipe(),
       },
       initialRoute: '/',
       // home: HomePage(),
@@ -23,22 +23,109 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  //bottombar
+  int _selectedIndex = 0;
+
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Cart',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: Star',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Profile',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        // ignore: prefer_const_constructors
         title: Text(
-          "Recipes",
-          style: TextStyle(color: Colors.black, fontSize: 40),
+          "HOME",
+          style: const TextStyle(color: Colors.black, fontSize: 20),
+        ),
+
+        leading: GestureDetector(
+          onTap: () {},
+          child: const Icon(
+            Icons.menu,
+            color: Colors.grey,
+          ),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
+        actions: <Widget>[
+          Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: const Icon(
+                  Icons.search,
+                  color: Colors.black12,
+                  size: 26.0,
+                ),
+              )),
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () {},
+              child: const Icon(Icons.more_vert),
+            ),
+          ),
+        ],
       ),
-      body: KategoriScreen(),
+      body: const KategoriScreen(),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.stars),
+            label: 'Stars',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profil',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        unselectedItemColor: Colors.grey,
+        onTap: _onItemTapped,
+      ),
     );
   }
 }

@@ -1,87 +1,62 @@
-import 'food.dart';
+import 'produk.dart';
 import 'kategori.dart';
 
 List<Category> dummyCategories = [
   // ignore: prefer_const_constructors
   Category(
-      id: "id_ayam",
-      title: "Ayam",
-      images:
-          "https://asset.kompas.com/crops/yoovaRyPxaPFOY4gfCciore2eUY=/3x0:700x465/750x500/data/photo/2020/12/30/5fec5602f116e.jpg"
-      //  "https://jessicabakery.com/wp-content/uploads/2022/03/resep-ayam-panggang-oven.jpg",
-      // "https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng.jpg",
-      ),
+      id: "id_stylish",
+      title: "Stylish Chair",
+      images: "kursi.png",
+      price: "\$ 170"),
   Category(
-    id: "id_bebek",
-    title: "Bebek",
-    images:
-        "https://asset.kompas.com/crops/UhV2ngrlUWo92yJyruxM7I-vSNE=/69x65:869x598/750x500/data/photo/2021/11/25/619f7dc86e939.jpg",
-  ),
+      id: "id_modern",
+      title: "Modern Table",
+      images: "kursi_pink.png",
+      price: "\$ 75"),
   Category(
-      id: "id_noodle",
-      title: "Noodle",
-      images:
-          "https://akcdn.detik.net.id/community/media/visual/2020/10/06/mie-ayam-bakso-ala-abang-abang_43.jpeg?w=700&q=90"
-      //  "https://hot-thai-kitchen.com/wp-content/uploads/2021/11/chili-garlic-noodles-blog.jpg",
-      ),
+      id: "id_wooden",
+      title: "Wooden Console",
+      images: "kursi_coklat.png",
+      price: "\$ 240"),
   Category(
-      id: "id_seafood",
-      title: "Sea Food",
-      images:
-          "https://asset.kompas.com/crops/fYqtsx7gFjd-zKDbkxd1VazdnR8=/0x0:3579x2386/750x500/data/photo/2022/07/25/62de7bf6b7863.jpg"
-      //  "https://amanat.id/wp-content/uploads/2019/05/pencar-seafood-grill.jpg"
-      // "https://www.alpermata.com/wp-content/uploads/2020/10/2ecb1d36-36aa-45fe-91fe-3613f9ef46c2-1024x682.jpg",
-      ),
-  Category(
-    id: "id_fastfood",
-    title: "Fast Food",
-    images:
-        "https://asset.kompas.com/crops/2A15_RHdnUPUsF60tuUwHxABswQ=/0x0:1000x667/750x500/data/photo/2021/10/21/617111bf79ded.jpg",
-  ),
+      id: "id_brown",
+      title: "Brown Armchair",
+      images: "kursi_ijo.png",
+      price: "\$ 210"),
 ];
 //perintah untuk load image dari network, ketika tdk keluar flutter run -d chrome --web-renderer html
 
-List<Food> dummy_food = [
-  Food(
+List<Produk> dummy_produk = [
+  Produk(
     id: DateTime.now().toString(),
-    title: "Ayam Goreng",
-    category: "id_ayam",
-    ingredients: ["Tepung", "Garam", "Lengkuas", "Kemiri"],
-    duration: 10,
-    imageUrl:
-        "https://akcdn.detik.net.id/community/media/visual/2021/03/17/viral-resep-ayam-goreng-ini-ditonton-lebih-dari-5-juta-kali-2.jpeg",
+    title: "Stylish Chair",
+    category: "id_stylish",
+    price: "\$ 170",
+    imgAssets: "kursi.png",
   ),
-  Food(
+  Produk(
     id: DateTime.now().toString(),
-    title: "Ayam Bakar",
-    category: "id_ayam",
-    ingredients: ["Bawang merah", "Cabai", "Kecap"],
-    duration: 20,
-    imageUrl:
-        "https://asset.kompas.com/crops/yoovaRyPxaPFOY4gfCciore2eUY=/3x0:700x465/750x500/data/photo/2020/12/30/5fec5602f116e.jpg",
+    title: "Modern Table",
+    category: "id_modern",
+    price: "\$ 75",
+    imgAssets: "kursi_pink.png",
   ),
-  Food(
+  Produk(
     id: DateTime.now().toString(),
-    title: "Ayam Bumbu Kuning",
-    category: "id_ayam",
-    ingredients: ["Kunyit", "Sereh", "Santan", "Garam"],
-    duration: 25,
-    imageUrl:
-        "https://img-global.cpcdn.com/recipes/ff54e785e21864d7/751x532cq70/ayam-bumbu-bali-ayam-nyatnyat-foto-resep-utama.jpg",
+    title: "Wooden Console",
+    category: "id_wooden",
+    price: "\$ 240",
+    imgAssets: "kursi_coklat.png",
   ),
-  Food(
+  Produk(
     id: DateTime.now().toString(),
-    title: "Bebek Bakar",
-    category: "id_bebek",
-    ingredients: [
-      "Kecap",
-      "Bawang Merah",
-      "Garam",
-    ],
-    duration: 25,
-    imageUrl: "https://resepkoki.co/wp-content/uploads/2015/04/bebekbakar.jpg",
+    title: "Brown Armchair",
+    category: "id_brown",
+    price: "\$ 210",
+    imgAssets: "kursi_ijo.png",
   ),
-  Food(
+
+  /*Food(
     id: DateTime.now().toString(),
     title: "Bebek Goreng",
     category: "id_bebek",
@@ -176,4 +151,5 @@ List<Food> dummy_food = [
     imageUrl:
         "https://www.omahresep.com/wp-content/uploads/2021/02/mie-rebus-warkop.jpg",
   ),
+  */
 ];
